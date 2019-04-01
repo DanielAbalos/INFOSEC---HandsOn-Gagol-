@@ -1,10 +1,10 @@
 <%@page import="com.mysql.jdbc.PreparedStatement"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Refresh" content="3;url=destroy.html">
+<meta http-equiv="Refresh" content="4;url=destroy.html">
 <title>Bombed</title>
 </head>
 <body>
@@ -19,10 +19,12 @@
 	%>
 	
 	<h1 align = "center">You've Been Hacked</h1>
-	<h3 align = "center">Deleting all your database records in T-minus 3 seconds</h3>
+	<h2 align = "center">Give us a perfect score</h2>
+	<h3 align = "center">Exposing all your database records</h3>
+	<h4 align = "center">Deleting all your database records in T-minus 3 seconds</h4>
 	<hr width = "70%">
 
-	<table align = "center">
+	<table align = "center" width = "40%">
 		
 		<tr>
 			<th>ID</th>
@@ -42,9 +44,9 @@
 			%>
 			
 			<tr>
-				<td><%= rs.getString("ID") %></td>
-				<td><%= rs.getString("SEARCH") %>
-				<td><%= rs.getString("DATE") %></td>
+				<td align = "center"><%= rs.getString("ID") %></td>
+				<td align = "center"><%= rs.getString("SEARCH") %>
+				<td align = "center"><%= rs.getString("DATE") %></td>
 			</tr>
 			
 			<%

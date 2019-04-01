@@ -40,8 +40,11 @@ public class TheBombServlet extends HttpServlet {
 			dbc.storeToDB(sm.getSearch(), sm.getDate());
 			response.sendRedirect("https://www.google.com/search?q=" + sm.getSearch());
 		
+		}else if(sm.getSearch().isEmpty()){
+			response.sendRedirect("index.html");			
+		
 		}else{
-			request.getRequestDispatcher("bombed.jsp").forward(request, response);;
+			request.getRequestDispatcher("hacking.html").forward(request, response);;
 		}
 	}
 
