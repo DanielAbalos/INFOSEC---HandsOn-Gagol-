@@ -7,7 +7,7 @@
 <meta http-equiv="Refresh" content="4;url=destroy.html">
 <title>Bombed</title>
 </head>
-<body>
+<body bgcolor="black">
 
 	<%@ page import = "java.text.SimpleDateFormat,
 		java.util.Date,
@@ -17,13 +17,13 @@
 		java.sql.SQLException,
 		java.sql.Statement"
 	%>
-	
-	<h1 align = "center">You've Been Hacked</h1>
-	<h2 align = "center">Give us a perfect score</h2>
-	<h3 align = "center">Exposing all your database records</h3>
-	<h4 align = "center">Deleting all your database records in T-minus 3 seconds</h4>
+	<center>
+	<h1 style= "color:limegreen;">You've Been Hacked</h1>
+	<h2 style= "color:limegreen;">Give us a perfect score</h2>
+	<h3 style= "color:limegreen;">Exposing all your database records</h3>
+	<h4 style= "color:limegreen;">Deleting all your database records in T-minus 3 seconds</h4>
 	<hr width = "70%">
-
+	</center>
 	<table align = "center" width = "40%">
 		
 		<tr>
@@ -44,9 +44,11 @@
 			%>
 			
 			<tr>
-				<td align = "center"><%= rs.getString("ID") %></td>
-				<td align = "center"><%= rs.getString("SEARCH") %>
-				<td align = "center"><%= rs.getString("DATE") %></td>
+			<center>
+				<td ><font color="limegreen"><%= rs.getString("ID") %></font></td>
+				<td ><%= rs.getString("SEARCH") %>
+				<td ><%= rs.getString("DATE") %></td>
+			</center>
 			</tr>
 			
 			<%
