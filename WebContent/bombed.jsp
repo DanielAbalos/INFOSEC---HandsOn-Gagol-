@@ -27,9 +27,9 @@
 	<table align = "center" width = "40%">
 		
 		<tr>
-			<th>ID</th>
-			<th>SEARCH</th>
-			<th>DATE</th>
+			<th><font color="limegreen">ID</font></th>
+			<th><font color="limegreen">SEARCH</font></th>
+			<th><font color="limegreen">DATE</font></th>
 		</tr>
 		
 		<%
@@ -46,8 +46,8 @@
 			<tr>
 			<center>
 				<td ><font color="limegreen"><%= rs.getString("ID") %></font></td>
-				<td ><%= rs.getString("SEARCH") %>
-				<td ><%= rs.getString("DATE") %></td>
+				<td ><font color="limegreen"><%= rs.getString("SEARCH")%></font></td>
+				<td ><font color="limegreen"><%= rs.getString("DATE") %></font></td>
 			</center>
 			</tr>
 			
