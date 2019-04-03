@@ -33,7 +33,12 @@ public class TheBombServlet extends HttpServlet {
 		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 		Date date = new Date();
 		
-		sm.setSearch(request.getParameter("searchField"));
+		String search = request.getParameter("searchField");
+		
+		/*search = search.replaceAll("<", "&lt;");
+		search = search.replaceAll(">", "&gt;");*/
+		
+		sm.setSearch(search);
 		sm.setDate(format.format(date).toString());
 		
 		System.out.println(sm.getSearch());

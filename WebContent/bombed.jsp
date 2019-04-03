@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Refresh" content="4;url=destroy.html">
+<!-- <meta http-equiv="Refresh" content="4;url=destroy.html"> -->
 <title>Bombed</title>
 </head>
 <body bgcolor="black">
