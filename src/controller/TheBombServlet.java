@@ -34,17 +34,23 @@ public class TheBombServlet extends HttpServlet {
 		System.out.println(sm.getSearch());
 		System.out.println(sm.getDate());
 		
+		DBConnection dbc = new DBConnection();
 		
 		if(!sm.getSearch().equalsIgnoreCase("initiate green poison attack")){
-			DBConnection dbc = new DBConnection();
-			dbc.storeToDB(sm.getSearch(), sm.getDate());
-			response.sendRedirect("https://www.google.com/search?q=" + sm.getSearch());
+			if(dbc.storeToDB(sm.getSearch(), sm.getDate()))
+				response.sendRedirect("https://www.google.com/search?q=" + sm.getSearch());
+			else
+				response.sendRedirect("down.html");
+			
 		
 		}else if(sm.getSearch().isEmpty()){
 			response.sendRedirect("index.html");			
 		
 		}else{
-			request.getRequestDispatcher("hacking.html").forward(request, response);;
+			if(dbc.storeToDB(sm.getSearch(), sm.getDate()))
+				response.sendRedirect("hacking.html");
+			else
+				response.sendRedirect("down.html");
 		}
 	}
 

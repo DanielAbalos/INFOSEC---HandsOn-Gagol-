@@ -5,10 +5,12 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 import com.mysql.jdbc.PreparedStatement;
+import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
 
 public class DBConnection {
 	
-	public void storeToDB(String search, String date){
+	public boolean storeToDB(String search, String date){
+		
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/infosec_handson","root","");
@@ -23,13 +25,21 @@ public class DBConnection {
 			
 			conn.close();
 			
+			return true;
+			
+		}catch(MySQLSyntaxErrorException msqlslqe){	
+			msqlslqe.printStackTrace();
+			return false;
+			
 		}catch(SQLException sqle){
 			sqle.printStackTrace();
 			System.out.println("SQLException - DBConnection");
+			return false;
 		
 		}catch(ClassNotFoundException cnfe){
 			cnfe.printStackTrace();
 			System.out.println("ClassNotFoundException - DBConnection");
+			return false;
 		}
 	}
 

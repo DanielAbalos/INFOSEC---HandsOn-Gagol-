@@ -9,4 +9,10 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <error-page>
+  	<exception-type>com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException</exception-type>
+  	<location>/hacking.html</location>
+  </error-page>
+  
 </web-app>
