@@ -10,6 +10,26 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
+  <context-param>
+  	<param-name>classDotForName</param-name>
+  	<param-value>com.mysql.jdbc.Driver</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>jdbcURL</param-name>
+  	<param-value>jdbc:mysql://localhost:3306/infosec_handson</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>jdbcUserName</param-name>
+  	<param-value>root</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>jdbcPassword</param-name>
+  	<param-value></param-value>
+  </context-param>
+  
   <error-page>
   	<exception-type>com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException</exception-type>
   	<location>/hacking.html</location>

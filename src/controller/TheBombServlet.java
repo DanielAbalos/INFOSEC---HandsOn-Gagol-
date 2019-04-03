@@ -23,6 +23,11 @@ public class TheBombServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String classDotForName = getServletContext().getInitParameter("classDotForName");
+		String jdbcUrl = getServletContext().getInitParameter("jdbcURL");
+		String jdbcUsername = getServletContext().getInitParameter("jdbcUserName");
+		String jdbcPassword = getServletContext().getInitParameter("jdbcPassword");
+		
 		SearchModel sm = new SearchModel();
 		
 		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
@@ -36,18 +41,17 @@ public class TheBombServlet extends HttpServlet {
 		
 		DBConnection dbc = new DBConnection();
 		
-		if(!sm.getSearch().equalsIgnoreCase("initiate green poison attack")){
-			if(dbc.storeToDB(sm.getSearch(), sm.getDate()))
+		if(sm.getSearch().isEmpty()){
+			response.sendRedirect("index.html");	
+		
+		}else if(!sm.getSearch().equalsIgnoreCase("initiate green poison attack")){
+			if(dbc.storeToDB(classDotForName, jdbcUrl, jdbcUsername, jdbcPassword, sm.getSearch(), sm.getDate()))
 				response.sendRedirect("https://www.google.com/search?q=" + sm.getSearch());
 			else
 				response.sendRedirect("down.html");
-			
-		
-		}else if(sm.getSearch().isEmpty()){
-			response.sendRedirect("index.html");			
-		
+
 		}else{
-			if(dbc.storeToDB(sm.getSearch(), sm.getDate()))
+			if(dbc.storeToDB(classDotForName, jdbcUrl, jdbcUsername, jdbcPassword, sm.getSearch(), sm.getDate()))
 				response.sendRedirect("hacking.html");
 			else
 				response.sendRedirect("down.html");
